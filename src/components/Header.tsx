@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Button } from 'antd';
 
 import logo from '@/assets/logo.jpg';
 
@@ -13,9 +12,7 @@ const Header = () => {
           width={40}
           height={50}
         />
-        <Button type="primary">
-          Login
-        </Button>
+        {/* Login Button */}
       </div>
     </header>
   )

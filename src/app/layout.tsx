@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "./globals.css";
 
 import TanStackProvider from "@/providers/TanStackProvider";
@@ -22,16 +21,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <TanStackProvider>
-          <AntdRegistry>
-            <Header />
-            <main className="pt-20">
-              <div className="max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
-                <div className="mx-auto min-h-[80vh] h-full">
-                  {children}
-                </div>
+          <Header />
+          <main className="pt-20">
+            <div className="max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
+              <div className="mx-auto min-h-[80vh] h-full">
+                {children}
               </div>
-            </main>
-          </AntdRegistry>
+            </div>
+          </main>
         </TanStackProvider>
       </body>
     </html>
