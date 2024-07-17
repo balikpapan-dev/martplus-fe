@@ -2,7 +2,7 @@ export const CITIES = [
   {
     value: 'aceh',
     label: 'Aceh',
-    children: [
+    options: [
       { value: 'banda-aceh', label: 'Kota Banda Aceh' },
       { value: 'langsa', label: 'Kota Langsa' },
       { value: 'lhokseumawe', label: 'Kota Lhokseumawe' },
@@ -30,7 +30,7 @@ export const CITIES = [
   {
     value: 'bali',
     label: 'Bali',
-    children: [
+    options: [
       { value: 'denpasar', label: 'Kota Denpasar' },
       { value: 'badung', label: 'Kabupaten Badung' },
       { value: 'bangli', label: 'Kabupaten Bangli' },
@@ -45,7 +45,7 @@ export const CITIES = [
   {
     value: 'bangka-belitung',
     label: 'Kepulauan Bangka Belitung',
-    children: [
+    options: [
       { value: 'pangkal-pinang', label: 'Kota Pangkal Pinang' },
       { value: 'bangka', label: 'Kabupaten Bangka' },
       { value: 'bangka-barat', label: 'Kabupaten Bangka Barat' },
@@ -58,7 +58,7 @@ export const CITIES = [
   {
     value: 'banten',
     label: 'Banten',
-    children: [
+    options: [
       { value: 'cilegon', label: 'Kota Cilegon' },
       { value: 'serang', label: 'Kota Serang' },
       { value: 'tangerang-selatan', label: 'Kota Tangerang Selatan' },
@@ -72,7 +72,7 @@ export const CITIES = [
   {
     value: 'bengkulu',
     label: 'Bengkulu',
-    children: [
+    options: [
       { value: 'bengkulu', label: 'Kota Bengkulu' },
       { value: 'bengkulu-selatan', label: 'Kabupaten Bengkulu Selatan' },
       { value: 'bengkulu-tengah', label: 'Kabupaten Bengkulu Tengah' },
@@ -88,7 +88,7 @@ export const CITIES = [
   {
     value: 'yogyakarta',
     label: 'Daerah Istimewa Yogyakarta',
-    children: [
+    options: [
       { value: 'yogyakarta', label: 'Kota Yogyakarta' },
       { value: 'bantul', label: 'Kabupaten Bantul' },
       { value: 'gunungkidul', label: 'Kabupaten Gunungkidul' },
@@ -99,7 +99,7 @@ export const CITIES = [
   {
     value: 'gorontalo',
     label: 'Gorontalo',
-    children: [
+    options: [
       { value: 'gorontalo', label: 'Kota Gorontalo' },
       { value: 'boalemo', label: 'Kabupaten Boalemo' },
       { value: 'bone-bolango', label: 'Kabupaten Bone Bolango' },
@@ -111,7 +111,7 @@ export const CITIES = [
   {
     value: 'jakarta',
     label: 'DKI Jakarta',
-    children: [
+    options: [
       { value: 'jakarta-barat', label: 'Kota Jakarta Barat' },
       { value: 'jakarta-pusat', label: 'Kota Jakarta Pusat' },
       { value: 'jakarta-selatan', label: 'Kota Jakarta Selatan' },
@@ -123,7 +123,7 @@ export const CITIES = [
   {
     value: 'jambi',
     label: 'Jambi',
-    children: [
+    options: [
       { value: 'jambi', label: 'Kota Jambi' },
       { value: 'sungai-penuh', label: 'Kota Sungai Penuh' },
       { value: 'batanghari', label: 'Kabupaten Batanghari' },
@@ -140,7 +140,7 @@ export const CITIES = [
   {
     value: 'jawa-barat',
     label: 'Jawa Barat',
-    children: [
+    options: [
       { value: 'bandung', label: 'Kota Bandung' },
       { value: 'bekasi', label: 'Kota Bekasi' },
       { value: 'bogor', label: 'Kota Bogor' },
@@ -172,7 +172,7 @@ export const CITIES = [
   {
     value: 'jawa-tengah',
     label: 'Jawa Tengah',
-    children: [
+    options: [
       { value: 'magelang', label: 'Kota Magelang' },
       { value: 'pekalongan', label: 'Kota Pekalongan' },
       { value: 'salatiga', label: 'Kota Salatiga' },
@@ -213,7 +213,7 @@ export const CITIES = [
   {
     value: 'jawa-timur',
     label: 'Jawa Timur',
-    children: [
+    options: [
       { value: 'batu', label: 'Kota Batu' },
       { value: 'blitar', label: 'Kota Blitar' },
       { value: 'kediri', label: 'Kota Kediri' },
@@ -256,7 +256,7 @@ export const CITIES = [
   {
     value: 'kalimantan-barat',
     label: 'Kalimantan Barat',
-    children: [
+    options: [
       { value: 'pontianak', label: 'Kota Pontianak' },
       { value: 'singkawang', label: 'Kota Singkawang' },
       { value: 'bengkayang', label: 'Kabupaten Bengkayang' },
@@ -276,7 +276,7 @@ export const CITIES = [
   {
     value: 'kalimantan-selatan',
     label: 'Kalimantan Selatan',
-    children: [
+    options: [
       { value: 'banjarbaru', label: 'Kota Banjarbaru' },
       { value: 'banjarmasin', label: 'Kota Banjarmasin' },
       { value: 'balangan', label: 'Kabupaten Balangan' },
@@ -295,7 +295,7 @@ export const CITIES = [
   {
     value: 'kalimantan-tengah',
     label: 'Kalimantan Tengah',
-    children: [
+    options: [
       { value: 'palangkaraya', label: 'Kota Palangkaraya' },
       { value: 'barito-selatan', label: 'Kabupaten Barito Selatan' },
       { value: 'barito-timur', label: 'Kabupaten Barito Timur' },
@@ -315,7 +315,7 @@ export const CITIES = [
   {
     value: 'kalimantan-timur',
     label: 'Kalimantan Timur',
-    children: [
+    options: [
       { value: 'balikpapan', label: 'Kota Balikpapan' },
       { value: 'bontang', label: 'Kota Bontang' },
       { value: 'samarinda', label: 'Kota Samarinda' },
@@ -331,7 +331,7 @@ export const CITIES = [
   {
     value: 'kalimantan-utara',
     label: 'Kalimantan Utara',
-    children: [
+    options: [
       { value: 'tarakan', label: 'Kota Tarakan' },
       { value: 'bulungan', label: 'Kabupaten Bulungan' },
       { value: 'malinau', label: 'Kabupaten Malinau' },
@@ -342,7 +342,7 @@ export const CITIES = [
   {
     value: 'kepulauan-riau',
     label: 'Kepulauan Riau',
-    children: [
+    options: [
       { value: 'batam', label: 'Kota Batam' },
       { value: 'tanjungpinang', label: 'Kota Tanjungpinang' },
       { value: 'bintan', label: 'Kabupaten Bintan' },
@@ -355,7 +355,7 @@ export const CITIES = [
   {
     value: 'lampung',
     label: 'Lampung',
-    children: [
+    options: [
       { value: 'bandar-lampung', label: 'Kota Bandar Lampung' },
       { value: 'metro', label: 'Kota Metro' },
       { value: 'lampung-barat', label: 'Kabupaten Lampung Barat' },
@@ -376,7 +376,7 @@ export const CITIES = [
   {
     value: 'maluku',
     label: 'Maluku',
-    children: [
+    options: [
       { value: 'ambon', label: 'Kota Ambon' },
       { value: 'tual', label: 'Kota Tual' },
       { value: 'buru', label: 'Kabupaten Buru' },
@@ -393,7 +393,7 @@ export const CITIES = [
   {
     value: 'maluku-utara',
     label: 'Maluku Utara',
-    children: [
+    options: [
       { value: 'ternate', label: 'Kota Ternate' },
       { value: 'tidore-kepulauan', label: 'Kota Tidore Kepulauan' },
       { value: 'halmahera-barat', label: 'Kabupaten Halmahera Barat' },
@@ -409,7 +409,7 @@ export const CITIES = [
   {
     value: 'ntb',
     label: 'Nusa Tenggara Barat',
-    children: [
+    options: [
       { value: 'bima', label: 'Kota Bima' },
       { value: 'mataram', label: 'Kota Mataram' },
       { value: 'bima-kab', label: 'Kabupaten Bima' },
@@ -425,7 +425,7 @@ export const CITIES = [
   {
     value: 'ntt',
     label: 'Nusa Tenggara Timur',
-    children: [
+    options: [
       { value: 'kupang', label: 'Kota Kupang' },
       { value: 'alor', label: 'Kabupaten Alor' },
       { value: 'belu', label: 'Kabupaten Belu' },
@@ -453,7 +453,7 @@ export const CITIES = [
   {
     value: 'papua',
     label: 'Papua',
-    children: [
+    options: [
       { value: 'jayapura', label: 'Kota Jayapura' },
       { value: 'asmat', label: 'Kabupaten Asmat' },
       { value: 'biak-numfor', label: 'Kabupaten Biak Numfor' },
@@ -488,7 +488,7 @@ export const CITIES = [
   {
     value: 'papua-barat',
     label: 'Papua Barat',
-    children: [
+    options: [
       { value: 'sorong', label: 'Kota Sorong' },
       { value: 'fakfak', label: 'Kabupaten Fakfak' },
       { value: 'kaimana', label: 'Kabupaten Kaimana' },
@@ -507,7 +507,7 @@ export const CITIES = [
   {
     value: 'riau',
     label: 'Riau',
-    children: [
+    options: [
       { value: 'dumai', label: 'Kota Dumai' },
       { value: 'pekanbaru', label: 'Kota Pekanbaru' },
       { value: 'bengkalis', label: 'Kabupaten Bengkalis' },
@@ -525,7 +525,7 @@ export const CITIES = [
   {
     value: 'sulawesi-selatan',
     label: 'Sulawesi Selatan',
-    children: [
+    options: [
       { value: 'makassar', label: 'Kota Makassar' },
       { value: 'palopo', label: 'Kota Palopo' },
       { value: 'parepare', label: 'Kota Parepare' },
@@ -559,7 +559,7 @@ export const CITIES = [
   {
     value: 'sulawesi-tengah',
     label: 'Sulawesi Tengah',
-    children: [
+    options: [
       { value: 'palu', label: 'Kota Palu' },
       { value: 'banggai', label: 'Kabupaten Banggai' },
       { value: 'banggai-kepulauan', label: 'Kabupaten Banggai Kepulauan' },
@@ -579,7 +579,7 @@ export const CITIES = [
   {
     value: 'sulawesi-tenggara',
     label: 'Sulawesi Tenggara',
-    children: [
+    options: [
       { value: 'bau-bau', label: 'Kota Bau-Bau' },
       { value: 'kendari', label: 'Kota Kendari' },
       { value: 'bombana', label: 'Kabupaten Bombana' },
@@ -602,7 +602,7 @@ export const CITIES = [
   {
     value: 'sulawesi-utara',
     label: 'Sulawesi Utara',
-    children: [
+    options: [
       { value: 'bitung', label: 'Kota Bitung' },
       { value: 'kotamobagu', label: 'Kota Kotamobagu' },
       { value: 'manado', label: 'Kota Manado' },
@@ -623,7 +623,7 @@ export const CITIES = [
   {
     value: 'sumatera-barat',
     label: 'Sumatera Barat',
-    children: [
+    options: [
       { value: 'bukittinggi', label: 'Kota Bukittinggi' },
       { value: 'padang', label: 'Kota Padang' },
       { value: 'padang-panjang', label: 'Kota Padang Panjang' },
@@ -649,7 +649,7 @@ export const CITIES = [
   {
     value: 'sumatera-selatan',
     label: 'Sumatera Selatan',
-    children: [
+    options: [
       { value: 'lubuklinggau', label: 'Kota Lubuklinggau' },
       { value: 'pagar-alam', label: 'Kota Pagar Alam' },
       { value: 'palembang', label: 'Kota Palembang' },
@@ -672,7 +672,7 @@ export const CITIES = [
   {
     value: 'sumatera-utara',
     label: 'Sumatera Utara',
-    children: [
+    options: [
       { value: 'binjai', label: 'Kota Binjai' },
       { value: 'gunungsitoli', label: 'Kota Gunungsitoli' },
       { value: 'medan', label: 'Kota Medan' },

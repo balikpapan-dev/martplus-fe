@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import TanStackProvider from "@/providers/TanStackProvider";
-import Header from "@/components/Header";
+import Header from "@/components/layout/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <TanStackProvider>
           <Header />
-          <main className="pt-20">
+          <main className="pt-24">
             <div className="max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
               <div className="mx-auto min-h-[80vh] h-full">
                 {children}
