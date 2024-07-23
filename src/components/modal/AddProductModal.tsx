@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { useAddProductModal } from "@/hooks/useAddProductModal";
 import useInput from "@/hooks/useInput";
@@ -21,23 +21,37 @@ const AddProductModal = () => {
     price: 0
   }]);
 
-  if (!modal.isOpen) return null;
-
-  const handleAddProductInput = () => {
+  const handleAddProductInput = useCallback(() => {
     setItems([...items, { name: "", quantity: 0, price: 0 }]);
-  };
+  }, [items]);
 
-  const handleRemoveProductInput = (index: number) => {
+  const handleRemoveProductInput = useCallback((index: number) => {
     const newItems = items.filter((_, idx) => idx !== index);
     setItems(newItems);
-  };
+  }, [items]);
 
-  const handleInputChange = (index: number, field: string, value: any) => {
+  const handleInputChange = useCallback((index: number, field: string, value: any) => {
     const newItems = items.map((item, idx) =>
       idx === index ? { ...item, [field]: value } : item
     );
     setItems(newItems);
-  };
+  }, [items]);
+
+  useEffect(() => {
+    if (!modal.data) return;
+
+    handleInputChange(0, "name", modal.data);
+    modal.setData("");
+  }, [modal, handleInputChange]);
+
+  useEffect(() => {
+    if (!modal.isOpen) {
+      setItems([{ name: "", quantity: 0, price: 0 }]);
+      onShopChange("");
+    }
+  }, [modal.isOpen, onShopChange]);
+
+  if (!modal.isOpen) return null;
 
   return (
     <Modal
