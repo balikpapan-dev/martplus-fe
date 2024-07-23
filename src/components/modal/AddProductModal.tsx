@@ -14,7 +14,7 @@ import { FaPlus } from "react-icons/fa";
 const AddProductModal = () => {
   const modal = useAddProductModal();
 
-  const [shop, onShopChange] = useInput("");
+  const [shop, onShopChange, setShop] = useInput("");
   const [items, setItems] = useState<TProductInput[]>([{
     name: "",
     quantity: 0,
@@ -47,9 +47,9 @@ const AddProductModal = () => {
   useEffect(() => {
     if (!modal.isOpen) {
       setItems([{ name: "", quantity: 0, price: 0 }]);
-      onShopChange("");
+      setShop("");
     }
-  }, [modal.isOpen, onShopChange]);
+  }, [modal.isOpen, setShop]);
 
   if (!modal.isOpen) return null;
 
