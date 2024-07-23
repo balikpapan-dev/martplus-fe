@@ -6,13 +6,17 @@ import AsyncCreatableSelect from 'react-select/async-creatable';
 
 import { CITIES } from "@/data/cities";
 import { SelectLoadOptionsType, SelectOption } from "@/types";
+import { useAddProductModal } from "@/hooks/useAddProductModal";
 
 export default function Page() {
+  const addProductModal = useAddProductModal();
+
   const [location, setLocation] = useState<string>("");
   const [product, setProduct] = useState<string>("");
 
   const handleCreate = (input: string) => {
-    //
+    addProductModal.setData(input);
+    addProductModal.open();
   }
 
   const loadOptions: SelectLoadOptionsType = (input, callback) => {

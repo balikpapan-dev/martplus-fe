@@ -4,6 +4,9 @@ import "./globals.css";
 
 import TanStackProvider from "@/providers/TanStackProvider";
 import Header from "@/components/layout/Header";
+import dynamic from "next/dynamic";
+
+const AddProductModal = dynamic(() => import("@/components/modal/AddProductModal"));
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +32,7 @@ export default function RootLayout({
               </div>
             </div>
           </main>
+          <AddProductModal />
         </TanStackProvider>
       </body>
     </html>
