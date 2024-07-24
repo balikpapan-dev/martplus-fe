@@ -7,6 +7,12 @@ export interface SelectOption {
 
 // Define the loadOptions function type
 export type SelectLoadOptionsType = (
-  inputValue: string, 
+  inputValue: string,
   callback: (options: OptionsOrGroups<SelectOption, GroupBase<SelectOption>>) => void
 ) => void;
+
+export type TProductInput = {
+  name: string;
+  quantity: number;
+  price: number;
+}
