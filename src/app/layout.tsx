@@ -7,6 +7,7 @@ import Header from "@/components/layout/Header";
 import dynamic from "next/dynamic";
 
 const AddProductModal = dynamic(() => import("@/components/modal/AddProductModal"));
+const AddShopModal = dynamic(() => import("@/components/modal/AddShopModal"));
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
             </div>
           </main>
           <AddProductModal />
+          <AddShopModal />
         </TanStackProvider>
       </body>
     </html>

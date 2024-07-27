@@ -7,17 +7,19 @@ const Modal: React.FC<{
   onClose: () => void;
   footer: React.ReactNode;
   children?: React.ReactNode;
+  zIndex?: number;
 }> = ({
   title,
   onClose,
   footer,
-  children
+  children,
+  zIndex = 100
 }) => {
     return (
       <div
         className="overflow-hidden fixed inset-0 flex items-center justify-center bg-neutral-800/70 outline-none focus:outline-none p-4 max-h-[100vh]"
         style={{
-          zIndex: 100
+          zIndex
         }}
       >
         <div className="bg-white rounded-3xl shadow-sm max-w-2xl max-h-[90vh] overflow-y-auto w-full p-5">

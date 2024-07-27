@@ -1,25 +1,52 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { FaPlus } from "react-icons/fa";
 
 import { useAddProductModal } from "@/hooks/useAddProductModal";
-import useInput from "@/hooks/useInput";
-import type { TProductInput } from "@/types";
+import type { SelectLoadOptionsType, SelectOption, TProductInput } from "@/types";
 
 import Modal from "../ui/Modal";
-import Input from "../ui/Input";
 import ProductInput from "../ProductInput";
-import { FaPlus } from "react-icons/fa";
+import { useAddShopModal } from "@/hooks/useAddShopModal";
+import AsyncCreatableSelect from "react-select/async-creatable";
 
 const AddProductModal = () => {
   const modal = useAddProductModal();
+  const shopModal = useAddShopModal();
 
-  const [shop, onShopChange, setShop] = useInput("");
+  const [shop, setShop] = useState<string>("");
   const [items, setItems] = useState<TProductInput[]>([{
     name: "",
     quantity: 0,
     price: 0
   }]);
+
+  const handleCreate = useCallback((input: string) => {
+    shopModal.setData(input);
+    shopModal.open();
+  }, [shopModal]);
+
+  const loadOptions: SelectLoadOptionsType = useCallback((input, callback) => {
+    // Simulate API call
+    if (!input) {
+      callback([]);
+      return;
+    }
+
+    const options: SelectOption[] = [
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'vanilla', label: 'Vanilla' }
+    ];
+
+    setTimeout(() => {
+      const filteredOptions = options.filter(option =>
+        option.label.toLowerCase().includes(input.toLowerCase())
+      );
+      callback(filteredOptions);
+    }, 1000);
+  }, []);
 
   const handleAddProductInput = useCallback(() => {
     setItems([...items, { name: "", quantity: 0, price: 0 }]);
@@ -65,12 +92,23 @@ const AddProductModal = () => {
     >
       <div className="flex gap-3 items-center">
         <label htmlFor="">Toko</label>
-        <Input
-          type="text"
+        <AsyncCreatableSelect
+          instanceId={'react-select'}
+          className="basic-single w-[70vw] max-w-[600px] text-xs md:text-base"
+          classNamePrefix="select"
+          closeMenuOnSelect
+          isSearchable
+          cacheOptions
+          defaultOptions
+          noOptionsMessage={() => shop ? 'Tidak ada hasil' : 'Ketik untuk mencari'}
+          loadingMessage={() => 'Loading...'}
+          placeholder="Cari toko..."
+          onChange={(e) => setShop(e?.valueOf() ?? "")}
+          loadOptions={loadOptions as any}
+          onCreateOption={handleCreate}
           value={shop}
-          onChange={onShopChange}
-          placeholder="Toko"
-          className="w-full"
+          formatCreateLabel={(inputValue) => `Buat toko baru: ${inputValue}`}
+          defaultValue={""}
         />
       </div>
       <hr className="h-px my-4 bg-gray-700 border-0" />
