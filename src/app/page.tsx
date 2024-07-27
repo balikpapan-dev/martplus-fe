@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Select from "react-select";
 import AsyncCreatableSelect from 'react-select/async-creatable';
 
@@ -14,12 +14,12 @@ export default function Page() {
   const [location, setLocation] = useState<string>("");
   const [product, setProduct] = useState<string>("");
 
-  const handleCreate = (input: string) => {
+  const handleCreate = useCallback((input: string) => {
     addProductModal.setData(input);
     addProductModal.open();
-  }
+  }, [addProductModal]);
 
-  const loadOptions: SelectLoadOptionsType = (input, callback) => {
+  const loadOptions: SelectLoadOptionsType = useCallback((input, callback) => {
     // Simulate API call
     if (!input) {
       callback([]);
@@ -38,7 +38,7 @@ export default function Page() {
       );
       callback(filteredOptions);
     }, 1000);
-  };
+  }, []);
 
   return (
     <div className="flex flex-col gap-6">
