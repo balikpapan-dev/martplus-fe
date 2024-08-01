@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import Select from "react-select";
 import AsyncCreatableSelect from 'react-select/async-creatable';
@@ -9,15 +10,17 @@ import { SelectLoadOptionsType, SelectOption } from "@/types";
 import { useAddProductModal } from "@/hooks/useAddProductModal";
 
 export default function Page() {
-  const addProductModal = useAddProductModal();
+  const router = useRouter();
+  // const addProductModal = useAddProductModal();
 
   const [location, setLocation] = useState<string>("");
   const [product, setProduct] = useState<string>("");
 
   const handleCreate = useCallback((input: string) => {
-    addProductModal.setData(input);
-    addProductModal.open();
-  }, [addProductModal]);
+    // addProductModal.setData(input);
+    // addProductModal.open();
+    router.push(`/product/add?name=${input}`);
+  }, [router]);
 
   const loadOptions: SelectLoadOptionsType = useCallback((input, callback) => {
     // Simulate API call

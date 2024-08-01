@@ -14,7 +14,7 @@ const ProductInput: React.FC<{
   onRemove
 }) => {
     return (
-      <div className="flex flex-col gap-3 mt-3">
+      <div className="flex flex-1 flex-col gap-3 mt-3">
         <div className="text-lg font-semibold">Produk #{index + 1}</div>
         <div className="flex gap-3 items-center">
           <label htmlFor="">Produk</label>
