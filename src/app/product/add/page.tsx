@@ -2,12 +2,13 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
+import AsyncCreatableSelect from "react-select/async-creatable";
 
 import type { SelectLoadOptionsType, SelectOption, TProductInput } from "@/types";
 
 import ProductInput from "@/components/ProductInput";
 import { useAddShopModal } from "@/hooks/useAddShopModal";
-import AsyncCreatableSelect from "react-select/async-creatable";
+import { useAddProductModal } from "@/hooks/useAddProductModal";
 
 export default function Page({
   searchParams
@@ -16,6 +17,7 @@ export default function Page({
     name: string | undefined;
   };
 }) {
+  const productModal = useAddProductModal();
   const shopModal = useAddShopModal();
 
   const [shop, setShop] = useState<string>("");
@@ -30,7 +32,28 @@ export default function Page({
     shopModal.open();
   }, [shopModal]);
 
-  const loadOptions: SelectLoadOptionsType = useCallback((input, callback) => {
+  const shopLoadOptions: SelectLoadOptionsType = useCallback((input, callback) => {
+    // Simulate API call
+    if (!input) {
+      callback([]);
+      return;
+    }
+
+    const options: SelectOption[] = [
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'vanilla', label: 'Vanilla' }
+    ];
+
+    setTimeout(() => {
+      const filteredOptions = options.filter(option =>
+        option.label.toLowerCase().includes(input.toLowerCase())
+      );
+      callback(filteredOptions);
+    }, 1000);
+  }, []);
+
+  const productLoadOptions: SelectLoadOptionsType = useCallback((input, callback) => {
     // Simulate API call
     if (!input) {
       callback([]);
@@ -67,6 +90,11 @@ export default function Page({
     setItems(newItems);
   }, [items]);
 
+  const handleCreateProduct = useCallback((input: string) => {
+    productModal.setData(input);
+    productModal.open();
+  }, [productModal]);
+
   useEffect(() => {
     if (!searchParams.name) return;
 
@@ -90,7 +118,7 @@ export default function Page({
           loadingMessage={() => 'Loading...'}
           placeholder="Cari toko..."
           onChange={(e) => setShop(e?.valueOf() ?? "")}
-          loadOptions={loadOptions as any}
+          loadOptions={shopLoadOptions as any}
           onCreateOption={handleCreate}
           value={shop}
           formatCreateLabel={(inputValue) => `Buat toko baru: ${inputValue}`}
@@ -105,6 +133,8 @@ export default function Page({
               value={item}
               onChange={(field: string, value: any) => handleInputChange(index, field, value)}
               onRemove={() => handleRemoveProductInput(index)}
+              onCreate={handleCreateProduct}
+              loadOptions={productLoadOptions}
             />
           ))}
         </div>

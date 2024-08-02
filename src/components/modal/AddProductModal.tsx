@@ -113,13 +113,14 @@ const AddProductModal = () => {
       </div>
       <hr className="h-px my-4 bg-gray-700 border-0" />
       {items.map((item, index) => (
-        <ProductInput
-          key={index}
-          index={index}
-          value={item}
-          onChange={(field: string, value: any) => handleInputChange(index, field, value)}
-          onRemove={() => handleRemoveProductInput(index)}
-        />
+        // <ProductInput
+        //   key={index}
+        //   index={index}
+        //   value={item}
+        //   onChange={(field: string, value: any) => handleInputChange(index, field, value)}
+        //   onRemove={() => handleRemoveProductInput(index)}
+        // />
+        <div key={index}></div>
       ))}
       <div className="flex flex-1 justify-center">
         <button

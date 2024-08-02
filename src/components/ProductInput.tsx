@@ -1,29 +1,49 @@
-import type { TProductInput } from "@/types";
-import Input from "./ui/Input";
+"use client";
+
 import { FaTrashAlt } from "react-icons/fa";
+import AsyncCreatableSelect from "react-select/async-creatable";
+
+import type { SelectLoadOptionsType, TProductInput } from "@/types";
+
+import Input from "./ui/Input";
 
 const ProductInput: React.FC<{
   index: number;
   value: TProductInput,
   onChange: (field: string, value: any) => void,
   onRemove: () => void
+  onCreate: (input: string) => void,
+  loadOptions: SelectLoadOptionsType
 }> = ({
   index,
   value,
   onChange,
-  onRemove
+  onRemove,
+  onCreate,
+  loadOptions
 }) => {
     return (
       <div className="flex flex-1 flex-col gap-3 mt-3">
         <div className="text-lg font-semibold">Produk #{index + 1}</div>
         <div className="flex gap-3 items-center">
           <label htmlFor="">Produk</label>
-          <Input
-            type="text"
+          <AsyncCreatableSelect
+            instanceId={'react-select'}
+            className="basic-single w-[70vw] max-w-[600px] text-xs md:text-base"
+            classNamePrefix="select"
+            closeMenuOnSelect
+            isSearchable
+            cacheOptions
+            defaultOptions
+            noOptionsMessage={() => value.name ? 'Tidak ada hasil' : 'Ketik untuk mencari'}
+            loadingMessage={() => 'Loading...'}
+            placeholder="Cari produk..."
+            onChange={(e) => onChange('name', e?.valueOf() ?? "")}
+            loadOptions={loadOptions as any}
+            onCreateOption={onCreate}
             value={value.name}
-            onChange={(e) => onChange('name', e.target.value)}
-            placeholder="Produk"
-            className="w-full"
+            formatCreateLabel={(inputValue) => `Buat produk baru: ${inputValue}`}
+            defaultValue={""}
           />
         </div>
         <div className="flex gap-3 items-center">
