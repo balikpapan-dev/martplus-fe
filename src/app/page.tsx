@@ -8,6 +8,8 @@ import { CITIES } from "@/data/cities";
 import { SelectLoadOptionsType, SelectOption } from "@/types";
 import { useAddProductModal } from "@/hooks/useAddProductModal";
 
+import ProductTable from "@/components/ProductTable";
+
 export default function Page() {
   const addProductModal = useAddProductModal();
 
@@ -90,7 +92,7 @@ export default function Page() {
 
       </div>
       <div>
-        {/* Table */}
+        <ProductTable />
       </div>
     </div>
   );
