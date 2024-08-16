@@ -3,6 +3,7 @@
 import { useCallback, useState } from "react";
 import Select from "react-select";
 import AsyncCreatableSelect from 'react-select/async-creatable';
+import { FaBarcode } from "react-icons/fa6";
 
 import { CITIES } from "@/data/cities";
 import { SelectLoadOptionsType, SelectOption } from "@/types";
@@ -47,12 +48,12 @@ export default function Page() {
       <div className="flex flex-col justify-center items-center gap-3">
 
         <h1>Cari harga termurah di dekatmu</h1>
-        <div className="flex flex-col gap-2">
-          <div className="flex gap-2 items-center justify-between">
-            <label>Lokasi</label>
+        <div className="flex flex-col gap-2 w-full md:w-[60vw] lg:w-[50vw]">
+          <div className="flex gap-2 items-center">
+            <label className="md:w-[50px] lg:w-[80px]">Lokasi</label>
             <Select
               instanceId={'react-select'}
-              className="basic-single w-[70vw] max-w-[600px] text-xs md:text-base"
+              className="basic-single flex-1 w-full text-xs md:text-base"
               classNamePrefix="select"
               closeMenuOnSelect
               isSearchable
@@ -67,11 +68,11 @@ export default function Page() {
           </div>
 
           <div className="flex gap-2 items-center justify-between">
-            <label>Produk</label>
+            <label className="md:w-[50px] lg:w-[80px]">Produk</label>
 
             <AsyncCreatableSelect
               instanceId={'react-select'}
-              className="basic-single w-[70vw] max-w-[600px] text-xs md:text-base"
+              className="basic-single flex-1 w-full text-xs md:text-base"
               classNamePrefix="select"
               closeMenuOnSelect
               isSearchable
@@ -87,6 +88,10 @@ export default function Page() {
               formatCreateLabel={(inputValue) => `Buat produk baru: ${inputValue}`}
               defaultValue={""}
             />
+
+            <button className="bg-black p-2 rounded-lg">
+              <FaBarcode className="text-white" />
+            </button>
           </div>
         </div>
 
