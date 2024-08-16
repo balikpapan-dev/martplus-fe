@@ -1,16 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import { FaPlus } from "react-icons/fa";
+import { useEffect } from "react";
 
 import { useAddProductModal } from "@/hooks/useAddProductModal";
-import type { SelectLoadOptionsType, SelectOption, TProductInput } from "@/types";
 
 import Modal from "../ui/Modal";
-import ProductInput from "../ProductInput";
-import { useAddShopModal } from "@/hooks/useAddShopModal";
 import Input from "../ui/Input";
 import useInput from "@/hooks/useInput";
+import { FaBarcode } from "react-icons/fa6";
 
 const AddProductModal = () => {
   const modal = useAddProductModal();
@@ -45,7 +42,7 @@ const AddProductModal = () => {
         </button>
       }
     >
-      <div className="flex gap-3 items-center mb-3">
+      <div className="mb-3">
         <div className="text-nowrap">Nama Produk</div>
         <Input
           type="text"
@@ -55,17 +52,24 @@ const AddProductModal = () => {
           className="w-full"
         />
       </div>
-      <div className="flex gap-3 items-center mb-3">
+      <div className="mb-3">
         <div className="text-nowrap">Barcode ID</div>
-        <Input
-          type="text"
-          value={barcode}
-          onChange={onBarcodeChange}
-          placeholder="Barcode ID"
-          className="w-full"
-        />
+        <div className="flex items-center gap-2">
+          <Input
+            type="text"
+            value={barcode}
+            onChange={onBarcodeChange}
+            placeholder="Barcode ID"
+            className="w-full"
+          />
+          <div>
+            <button className="bg-black p-2 rounded-lg">
+              <FaBarcode className="text-white" />
+            </button>
+          </div>
+        </div>
       </div>
-      <div className="flex gap-3 items-center mb-3">
+      <div className="mb-3">
         <div className="text-nowrap">Satuan Produk</div>
         <Input
           type="text"
@@ -75,7 +79,7 @@ const AddProductModal = () => {
           className="w-full"
         />
       </div>
-      <div className="flex gap-3 items-center mb-3">
+      <div className="mb-3">
         <div className="text-nowrap">Nilai Satuan</div>
         <Input
           type="text"
